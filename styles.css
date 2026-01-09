@@ -1,0 +1,123 @@
+:root {
+    --bg-color: #0f172a;
+    --text-color: #e2e8f0;
+    --accent-color: #38bdf8;
+    --accent-hover: #0ea5e9;
+    --ring-bg: #1e293b;
+    --ring-fg: #38bdf8;
+    --btn-bg: #334155;
+    --btn-hover: #475569;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.title {
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    opacity: 0.9;
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: var(--accent-color);
+}
+
+.timer-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+
+.progress-ring {
+    transform: rotate(-90deg);
+}
+
+.progress-ring__circle-bg {
+    stroke: var(--ring-bg);
+}
+
+.progress-ring__circle {
+    stroke: var(--ring-fg);
+    transition: stroke-dashoffset 0.35s;
+    transform-origin: 50% 50%;
+    stroke-linecap: round;
+}
+
+.time-display {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+    font-weight: 600;
+    font-feature-settings: "tnum";
+    font-variant-numeric: tabular-nums;
+}
+
+.controls {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.btn {
+    background: var(--btn-bg);
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.btn:hover:not(:disabled) {
+    background: var(--btn-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-primary {
+    background: var(--accent-color);
+    color: #0f172a;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: var(--accent-hover);
+}
